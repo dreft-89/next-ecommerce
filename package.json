@@ -1,0 +1,30 @@
+{
+  "name": "next-ecommerce",
+  "version": "1.0.0",
+  "description": "next-ecommerce",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "start": "next start",
+    "build": "next build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dreft-89/next-ecommerce.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dreft-89/next-ecommerce/issues"
+  },
+  "homepage": "https://github.com/dreft-89/next-ecommerce#readme",
+  "dependencies": {
+    "@material-ui/core": "^4.9.13",
+    "clsx": "^1.1.0",
+    "next": "^9.3.6",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}

@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/dreft-89/next-ecommerce#readme",
   "dependencies": {
-    "@material-ui/core": "^4.9.13",
+    "@material-ui/core": "^4.9.14",
+    "@material-ui/icons": "^4.9.1",
     "clsx": "^1.1.0",
     "next": "^9.3.6",
     "prop-types": "^15.7.2",

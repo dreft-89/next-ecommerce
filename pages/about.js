@@ -1,38 +1,21 @@
 import React from 'react';
-import NextLink from 'next/link';
+import { Button } from '@material-ui/core'
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  root: {
+    backgroundColor: "red",
+    color: (props) => props.color,
+  },
+});
 
 export default () => {
     return (
       <div>
-        <nav>
-          <ul>
-            <li>
-              <NextLink href="/">Home</NextLink>
-            </li>
-            <li>
-              <NextLink href="/about">About</NextLink>
-            </li>
-            <li>
-              <NextLink href="/contact-us">Contact-US</NextLink>
-            </li>
-            <li>
-              <NextLink href="/privacy">Privacy and Policy</NextLink>
-            </li>
-            <li>
-              <NextLink href="/login">Login</NextLink>
-            </li>
-            <li>
-              <NextLink href="/cart">Cart</NextLink>
-            </li>
-            <li>
-              <NextLink href="/product-details">Product Details</NextLink>
-            </li>
-            <li>
-              <NextLink href="/product-list">Product List</NextLink>
-            </li>
-          </ul>
-        </nav>
         <h1>About Us</h1>
+        <Button variant="secondary">
+          Secondary
+        </Button>
       </div>
     );
 }

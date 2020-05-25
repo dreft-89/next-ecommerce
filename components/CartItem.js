@@ -5,12 +5,10 @@ import {
   CardActionArea,
   CardActions,
   CardContent,
-  CardMedia,
   Button,
   Grid,
   Typography, 
 } from "@material-ui/core";
-import { useGlobal } from "../src/context/GlobalContext"
 
 const useStyles = makeStyles(
   (theme) => ({
@@ -27,9 +25,8 @@ const useStyles = makeStyles(
   { name: "ProductItem" }
 );
 
-export default function ProductItem(product) {  
+export function CartItem(product) {  
   const classes = useStyles();
-  const [state, dispatch] = useGlobal();
 
   return (
     <Grid item xs={12} md={6} lg={4}>
@@ -66,21 +63,8 @@ export default function ProductItem(product) {
                 size="small"
                 color="#37474f"
                 fullWidth
-                onClick={(evt) => {
-                  if (evt) {
-                    evt.preventDefault();
-                  }
-                  
-                  dispatch({
-                    type: 'ADD_TO_BAG',
-                    payload: {
-                      id: product.id,
-                      qty: 1
-                    }
-                  });
-                }}
               >
-                Add to Bag
+                Remove from Bag
               </Button>
             </Grid>
             <Grid item xs={12} md={6}>
@@ -90,7 +74,7 @@ export default function ProductItem(product) {
                 color="#37474f"
                 fullWidth
               >
-                Add to wishlist
+                Move to wishlist
               </Button>
             </Grid>
           </Grid>

@@ -4,9 +4,9 @@ import Head from "next/head";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "../src/theme";
-import PrimarySearchAppBar from "../components/PrimarySearchAppBar.js";
-import LabelBottomNavigation from '../components/LabelBottomNavigation.js'
-import { GlobalProvider } from '../src/context/GlobalContext.js'
+import PrimarySearchAppBar from "../components/PrimarySearchAppBar";
+import { GlobalProvider } from "../src/context/GlobalContext";
+import StickyFooter from "../components/StickyFooter"
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
@@ -35,7 +35,7 @@ export default function MyApp(props) {
           <PrimarySearchAppBar />
           <Component {...pageProps} />
         </GlobalProvider>
-        <LabelBottomNavigation />
+        <StickyFooter />
       </ThemeProvider>
     </React.Fragment>
   );

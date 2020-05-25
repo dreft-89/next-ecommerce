@@ -17,7 +17,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Link from "../src/Link";
-import { useGlobal } from "../src/context/GlobalContext";
+// import { useGlobal } from "../src/context/GlobalContext";
 
 const useStyles = makeStyles((theme) => ({
   grow: {

@@ -1,23 +1,27 @@
   
 import React from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
-import InputBase from "@material-ui/core/InputBase";
-import Badge from "@material-ui/core/Badge";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
-import MenuIcon from "@material-ui/icons/Menu";
-import SearchIcon from "@material-ui/icons/Search";
+import { 
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  InputBase,
+  Menu,
+  MenuItem,
+  Badge
+} from "@material-ui/core";
+
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import MailIcon from "@material-ui/icons/Mail";
-import NotificationsIcon from "@material-ui/icons/Notifications";
-import MoreIcon from "@material-ui/icons/MoreVert";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import SearchIcon from "@material-ui/icons/Search";
+import NotificationsIcon from "@material-ui/icons/Notifications";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
+import MenuIcon from "@material-ui/icons/Menu";
+import MailIcon from "@material-ui/icons/Mail";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 import Link from "../src/Link";
-// import { useGlobal } from "../src/context/GlobalContext";
+import { useGlobal } from "../src/context/GlobalContext";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -92,7 +96,9 @@ export default function PrimarySearchAppBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
+  const [state] = useGlobal();
+  const cartCounter = state.cart.lenght; 
+  const wishlistCounter = state.wishlist.lenght;
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -168,8 +174,19 @@ export default function PrimarySearchAppBar() {
         <p>Profile</p>
       </MenuItem>
       <MenuItem>
-        <IconButton aria-label="show 3 products" color="inherit">
-          <Badge badgeContent={3} color="secondary">
+        <IconButton
+          aria-label={`show ${wishlistCounter} products`}
+          color="inherit"
+        >
+          <Badge badgeContent={wishlistCounter} color="secondary">
+            <FavoriteIcon />
+          </Badge>
+        </IconButton>
+        <p>Wishlist</p>
+      </MenuItem>
+      <MenuItem>
+        <IconButton aria-label={`show ${cartCounter} products`} color="inherit">
+          <Badge badgeContent={cartCounter} color="secondary">
             <ShoppingCartIcon />
           </Badge>
         </IconButton>
@@ -190,14 +207,11 @@ export default function PrimarySearchAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
-          </Typography>
           <Link href="/products">
             <Typography className={classes.title} variant="h6">
               Products
-            {/* <MenuListComposition /> */}
-          </Typography>
+              {/* <MenuListComposition /> */}
+            </Typography>
           </Link>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -234,9 +248,22 @@ export default function PrimarySearchAppBar() {
             >
               <AccountCircle />
             </IconButton>
+            <Link href="/wishlist" className={classes.cartIcon}>
+              <IconButton
+                aria-label={`show ${wishlistCounter} products`}
+                color="inherit"
+              >
+                <Badge badgeContent={wishlistCounter} color="secondary">
+                  <FavoriteIcon />
+                </Badge>
+              </IconButton>
+            </Link>
             <Link href="/cart" className={classes.cartIcon}>
-              <IconButton aria-label="show 3 products" color="inherit">
-                <Badge badgeContent={3} color="secondary">
+              <IconButton
+                aria-label={`show ${cartCounter} products`}
+                color="inherit"
+              >
+                <Badge badgeContent={cartCounter} color="secondary">
                   <ShoppingCartIcon />
                 </Badge>
               </IconButton>
@@ -250,7 +277,7 @@ export default function PrimarySearchAppBar() {
               onClick={handleMobileMenuOpen}
               color="inherit"
             >
-              <MoreIcon />
+              <MoreVertIcon />
             </IconButton>
           </div>
         </Toolbar>

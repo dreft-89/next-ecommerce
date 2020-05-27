@@ -4,7 +4,7 @@ export function globalReducer(state, action) {
   switch (type) {
     case "ADD_TO_BAG": {
       const addedProduct = state.products.find(
-        (product) => product.id === payload.id
+        product => product.id === payload.id
       );
       let updatedCart = [...state.cart];
       updatedCart.push({
@@ -18,14 +18,41 @@ export function globalReducer(state, action) {
       };
     }
 
+    case "ADD_TO_WISHLIST": {
+      const addedProduct = state.products.find(
+        product => product.id === payload.id
+      );
+      let updatedWishList = [...state.wishlist];
+      updatedWishList.push({
+        ...addedProduct,
+        qty: payload.qty,
+      });
+
+      return {
+        ...state,
+        cart: updatedWishList,
+      };
+    }
+
     case "REMOVE_FROM_BAG": {
       const updatedCart = state.cart.filter(
-        (cartItem) => cartItem.id !== payload.id
+        cartItem => cartItem.id !== payload.id
       );
 
       return {
         ...state,
         cart: updatedCart,
+      };
+    }
+
+    case "REMOVE_FROM_WISHLIST": {
+      const updatedWishList = state.wishlist.filter(
+        (wishListItem) => wishListItem.id !== payload.id
+      );
+
+      return {
+        ...state,
+        wishlist: updatedWishList,
       };
     }
 

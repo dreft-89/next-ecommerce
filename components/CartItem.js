@@ -9,6 +9,7 @@ import {
   Grid,
   Typography, 
 } from "@material-ui/core";
+import { useGlobal } from "../src/context/GlobalContext";
 
 const useStyles = makeStyles(
   (theme) => ({
@@ -22,11 +23,12 @@ const useStyles = makeStyles(
       height: "100%",
     },
   }),
-  { name: "ProductItem" }
+  { name: "CartItem" }
 );
 
-export function CartItem(product) {  
+export default function CartItem(product) {  
   const classes = useStyles();
+  const [state, dispatch] = useGlobal();
 
   return (
     <Grid item xs={12} md={6} lg={4}>
@@ -63,6 +65,18 @@ export function CartItem(product) {
                 size="small"
                 color="#37474f"
                 fullWidth
+                onClick={(evt) => {
+                  if (evt) {
+                    evt.preventDefault();
+                  }
+                  
+                  dispatch({
+                    type: 'REMOVE_FROM_BAG',
+                    payload: {
+                      id: product.id,
+                    }
+                  });
+                }}
               >
                 Remove from Bag
               </Button>

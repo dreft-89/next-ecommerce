@@ -5,7 +5,6 @@ import {
   CardActionArea,
   CardActions,
   CardContent,
-  CardMedia,
   Button,
   Grid,
   Typography, 
@@ -24,10 +23,10 @@ const useStyles = makeStyles(
       height: "100%",
     },
   }),
-  { name: "ProductItem" }
+  { name: "WishListItem" }
 );
 
-export default function ProductItem(product) {  
+export default function WishListItem(product) {  
   const classes = useStyles();
   const [state, dispatch] = useGlobal();
 
@@ -72,19 +71,18 @@ export default function ProductItem(product) {
                   }
                   
                   dispatch({
-                    type: 'ADD_TO_BAG',
+                    type: 'REMOVE_FROM_WISHLIST',
                     payload: {
                       id: product.id,
-                      qty: 1
                     }
                   });
                 }}
               >
-                Add to Bag
+                Remove from wishlist
               </Button>
             </Grid>
             <Grid item xs={12} md={6}>
-              <Button
+            <Button
                 variant="contained"
                 size="small"
                 color="#37474f"
@@ -95,7 +93,7 @@ export default function ProductItem(product) {
                   }
                   
                   dispatch({
-                    type: 'ADD_TO_WISHLIST',
+                    type: 'ADD_TO_BAG',
                     payload: {
                       id: product.id,
                       qty: 1
@@ -103,7 +101,7 @@ export default function ProductItem(product) {
                   });
                 }}
               >
-                Add to wishlist
+                Add to Bag
               </Button>
             </Grid>
           </Grid>

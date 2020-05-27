@@ -44,7 +44,7 @@ export const initialState = {
            },
            {
              id: "6",
-             name: "PS 5 ",
+             name: "PS 5",
              price: "$1505",
              descrition: "Description",
              image: "../../public/Nintendo.jpg",

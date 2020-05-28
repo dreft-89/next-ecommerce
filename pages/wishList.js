@@ -11,7 +11,7 @@ export default () => {
       <h1>Wishlist</h1>
 
       <Grid container spacing={3} alignItems="stretch">
-        {!state.wishlist.length && <h2>Wishlist is empty</h2>}
+        {!state.wishlist.length && <h2>Your wishlist is empty</h2>}
 
         {state.wishlist.map((product, index) => (
           <WishListItem key={index} product={product} />

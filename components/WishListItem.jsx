@@ -11,7 +11,7 @@ import {
   Button,
 } from '@material-ui/core';
 import { useGlobal } from '../src/context/GlobalContext';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import DeleteIcon from "@material-ui/icons/Delete";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 const useStyles = makeStyles((theme) => ({
@@ -65,7 +65,7 @@ export default function WishListItem({ product }) {
                 color="primary"
                 variant="contained"
                 fullWidth
-                endIcon={<FavoriteIcon />}
+                endIcon={<DeleteIcon />}
                 onClick={(evt) => {
                   if (evt) {
                     evt.preventDefault();
@@ -79,7 +79,7 @@ export default function WishListItem({ product }) {
                   });
                 }}
               >
-                Remove from wishlist
+                Remove
               </Button>
             </Grid>
             <Grid item xs={12} md={6}>

@@ -1,13 +1,14 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
-  Card,
-  CardActionArea,
+  Grid,
+  Typography,
   CardActions,
   CardContent,
+  CardMedia,
+  Card,
+  CardActionArea,
   Button,
-  Grid,
-  Typography, 
 } from "@material-ui/core";
 import { useGlobal } from "../src/context/GlobalContext";
 
@@ -23,10 +24,10 @@ const useStyles = makeStyles(
       height: "100%",
     },
   }),
-  { name: "CartItem" }
+  { name: "ProductItem" }
 );
 
-export default function CartItem(product) {  
+export default function CartItem({ product }) {
   const classes = useStyles();
   const [state, dispatch] = useGlobal();
 
@@ -36,59 +37,70 @@ export default function CartItem(product) {
         <CardActionArea>
           <CardMedia
             className={classes.media}
-            title={product.name}
             image={product.image}
+            title={product.name}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
               {product.name}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              {product.descrition}
+              {product.description}
             </Typography>
             <Typography
               variant="body2"
-              align="center"
-              color="black"
-              font-size={16}
               component="p"
+              align="center"
+              fontSize={16}
             >
               {product.price}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Grid container splacing={1}>
+          <Grid container spacing={1}>
             <Grid item xs={12} md={6}>
               <Button
-                variant="contained"
                 size="small"
-                color="#37474f"
+                color="primary"
+                variant="contained"
                 fullWidth
                 onClick={(evt) => {
                   if (evt) {
                     evt.preventDefault();
                   }
-                  
+
                   dispatch({
-                    type: 'REMOVE_FROM_BAG',
+                    type: "REMOVE_FROM_CART",
                     payload: {
                       id: product.id,
-                    }
+                    },
                   });
                 }}
               >
-                Remove from Bag
+                Remove from bag
               </Button>
             </Grid>
             <Grid item xs={12} md={6}>
               <Button
-                variant="contained"
                 size="small"
-                color="#37474f"
+                color="primary"
+                variant="contained"
                 fullWidth
+                onClick={(evt) => {
+                  if (evt) {
+                    evt.preventDefault();
+                  }
+
+                  dispatch({
+                    type: "ADD_TO_WISHLIST_FROM_CART",
+                    payload: {
+                      id: product.id,
+                    },
+                  });
+                }}
               >
-                Move to wishlist
+                Move to wishlist 
               </Button>
             </Grid>
           </Grid>

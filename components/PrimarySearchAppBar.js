@@ -1,7 +1,6 @@
-  
 import React from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
-import { 
+import {
   AppBar,
   Toolbar,
   IconButton,
@@ -9,7 +8,7 @@ import {
   InputBase,
   Menu,
   MenuItem,
-  Badge
+  Badge,
 } from "@material-ui/core";
 
 import AccountCircle from "@material-ui/icons/AccountCircle";
@@ -31,65 +30,61 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   title: {
-    color: 'white',
-    display: 'none',
-    padding: '0 1rem',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
+    display: "none",
+    padding: "0 2rem",
+    [theme.breakpoints.up("sm")]: {
+      display: "block",
     },
   },
   search: {
-    position: 'relative',
+    position: "relative",
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
-    '&:hover': {
+    "&:hover": {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing(3),
-      width: 'auto',
+      width: "auto",
     },
   },
   searchIcon: {
     padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    height: "100%",
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   inputRoot: {
-    color: 'inherit',
+    color: "inherit",
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    [theme.breakpoints.up("md")]: {
+      width: "20ch",
     },
   },
   sectionDesktop: {
-    display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'flex',
+    display: "none",
+    [theme.breakpoints.up("md")]: {
+      display: "flex",
     },
   },
   sectionMobile: {
-    display: 'flex',
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
+    display: "flex",
+    [theme.breakpoints.up("md")]: {
+      display: "none",
     },
   },
-  cartIcon: {
-    color: 'white',
-  }
 }));
 
 export default function PrimarySearchAppBar() {
@@ -97,8 +92,9 @@ export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [state] = useGlobal();
-  const cartCounter = state.cart.lenght; 
-  const wishlistCounter = state.wishlist.lenght;
+  const cartCounter = state.cart.length;
+  const wishlistCounter = state.wishlist.length;
+
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -119,14 +115,14 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const menuId = 'primary-search-account-menu';
+  const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      anchorOrigin={{ vertical: "top", horizontal: "right" }}
       id={menuId}
       keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      transformOrigin={{ vertical: "top", horizontal: "right" }}
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
@@ -135,7 +131,7 @@ export default function PrimarySearchAppBar() {
     </Menu>
   );
 
-  const mobileMenuId = 'primary-search-account-menu-mobile';
+  const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
@@ -173,9 +169,9 @@ export default function PrimarySearchAppBar() {
         </IconButton>
         <p>Profile</p>
       </MenuItem>
-      <MenuItem>
+      <MenuItem href="/wishlist">
         <IconButton
-          aria-label={`show ${wishlistCounter} products`}
+          aria-label={`show ${wishlistCounter} product`}
           color="inherit"
         >
           <Badge badgeContent={wishlistCounter} color="secondary">
@@ -184,13 +180,13 @@ export default function PrimarySearchAppBar() {
         </IconButton>
         <p>Wishlist</p>
       </MenuItem>
-      <MenuItem>
-        <IconButton aria-label={`show ${cartCounter} products`} color="inherit">
+      <MenuItem href="/cart">
+        <IconButton aria-label={`show ${cartCounter} product`} color="inherit">
           <Badge badgeContent={cartCounter} color="secondary">
             <ShoppingCartIcon />
           </Badge>
         </IconButton>
-        <p>Products</p>
+        <p>Cart</p>
       </MenuItem>
     </Menu>
   );
@@ -210,7 +206,6 @@ export default function PrimarySearchAppBar() {
           <Link href="/products">
             <Typography className={classes.title} variant="h6">
               Products
-              {/* <MenuListComposition /> */}
             </Typography>
           </Link>
           <div className={classes.search}>
@@ -248,9 +243,9 @@ export default function PrimarySearchAppBar() {
             >
               <AccountCircle />
             </IconButton>
-            <Link href="/wishlist" className={classes.cartIcon}>
+            <Link href="/wishlist">
               <IconButton
-                aria-label={`show ${wishlistCounter} products`}
+                aria-label={`show ${wishlistCounter} product`}
                 color="inherit"
               >
                 <Badge badgeContent={wishlistCounter} color="secondary">
@@ -260,7 +255,7 @@ export default function PrimarySearchAppBar() {
             </Link>
             <Link href="/cart" className={classes.cartIcon}>
               <IconButton
-                aria-label={`show ${cartCounter} products`}
+                aria-label={`show ${cartCounter} product`}
                 color="inherit"
               >
                 <Badge badgeContent={cartCounter} color="secondary">

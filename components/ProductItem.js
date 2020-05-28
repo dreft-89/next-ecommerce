@@ -1,114 +1,111 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import {
-  Card,
-  CardActionArea,
+  Grid,
+  Typography,
   CardActions,
   CardContent,
   CardMedia,
+  Card,
+  CardActionArea,
   Button,
-  Grid,
-  Typography, 
-} from "@material-ui/core";
-import { useGlobal } from "../src/context/GlobalContext";
+} from '@material-ui/core';
+import { useGlobal } from '../src/context/GlobalContext';
+import Link from '../src/Link';
 
-const useStyles = makeStyles(
-  (theme) => ({
-    media: {
-      height: 250,
-      [theme.breakpoints.up("md")]: {
-        height: 300,
-      },
-    },
-    card: {
-      height: "100%",
-    },
-  }),
-  { name: "ProductItem" }
-);
 
-export default function ProductItem(product) {  
+const useStyles = makeStyles((theme) => ({
+  media: {
+    height: 250,
+    [theme.breakpoints.up('md')]: {
+      height: 300,
+    },
+  },
+  card: {
+    height: '100%',
+  }
+}), { name: 'ProductItem' });
+
+export default function ProductItem({product}) {
   const classes = useStyles();
-  const [state, dispatch] = useGlobal();
+  const [ state, dispatch ] = useGlobal();
 
   return (
-    <Grid item xs={12} md={6} lg={4}>
-      <Card className={classes.card}>
-        <CardActionArea>
-          <CardMedia
-            className={classes.media}
-            title={product.name}
-            image={product.image}
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              {product.name}
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {product.descrition}
-            </Typography>
-            <Typography
-              variant="body2"
-              align="center"
-              color="black"
-              font-size={16}
-              component="p"
-            >
-              {product.price}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-          <Grid container splacing={1}>
-            <Grid item xs={12} md={6}>
-              <Button
-                variant="contained"
-                size="small"
-                color="#37474f"
-                fullWidth
-                onClick={(evt) => {
-                  if (evt) {
-                    evt.preventDefault();
-                  }
-                  
-                  dispatch({
-                    type: 'ADD_TO_BAG',
-                    payload: {
-                      id: product.id,
-                      qty: 1
+      <Grid item xs={12} md={6} lg={4}>
+        <Card className={classes.card}>
+          <CardActionArea>
+            <Link href="/products/[product]" as={`/products/${product.id}`}>
+              <CardMedia
+                className={classes.media}
+                image={product.image}
+                title={product.name}
+              />
+            </Link>
+            
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+                {product.name}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                {product.description}
+              </Typography>
+              <Typography variant="body2" component="p" align="center" fontSize={16}>
+                {product.price}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+          <CardActions>
+            <Grid container spacing={1}>
+              <Grid item xs={12} md={6}>
+                <Button
+                  size="small"
+                  color="primary"
+                  variant="contained"
+                  fullWidth
+                  onClick={ (evt) => {
+                    if (evt) {
+                      evt.preventDefault();
                     }
-                  });
-                }}
-              >
-                Add to Bag
+                    
+                    dispatch({
+                      type: 'ADD_TO_CART',
+                      payload: {
+                        id: product.id,
+                        qty: 1
+                      }
+                    });
+                  }}
+                >
+                  Add to bag
               </Button>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Button
-                variant="contained"
-                size="small"
-                color="#37474f"
-                fullWidth
-                onClick={(evt) => {
-                  if (evt) {
-                    evt.preventDefault();
-                  }
-                  
-                  dispatch({
-                    type: 'ADD_TO_WISHLIST',
-                    payload: {
-                      id: product.id,
-                      qty: 1
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <Button
+                  size="small"
+                  color="primary"
+                  variant="contained" 
+                  fullWidth
+                  onClick={ (evt) => {
+                      if (evt) {
+                        evt.preventDefault();
+                      }
+                      
+                      dispatch({
+                        type: 'ADD_TO_WISHLIST',
+                        payload: {
+                          id: product.id,
+                          qty: 1
+                        }
+                      });
                     }
-                  });
-                }}
-              >
-                Add to wishlist
+                  }
+                >
+                  Add to wishlist
               </Button>
+              </Grid>
             </Grid>
-          </Grid>
-        </CardActions>
-      </Card>
-    </Grid>
+          </CardActions>
+        </Card>
+      </Grid>
   );
 }

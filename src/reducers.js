@@ -2,9 +2,9 @@ export function globalReducer(state, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case "ADD_TO_BAG": {
+    case "ADD_TO_CART": {
       const addedProduct = state.products.find(
-        product => product.id === payload.id
+        (product) => product.id === payload.id
       );
       let updatedCart = [...state.cart];
       updatedCart.push({
@@ -18,25 +18,9 @@ export function globalReducer(state, action) {
       };
     }
 
-    case "ADD_TO_WISHLIST": {
-      const addedProduct = state.products.find(
-        product => product.id === payload.id
-      );
-      let updatedWishList = [...state.wishlist];
-      updatedWishList.push({
-        ...addedProduct,
-        qty: payload.qty,
-      });
-
-      return {
-        ...state,
-        cart: updatedWishList,
-      };
-    }
-
-    case "REMOVE_FROM_BAG": {
+    case "REMOVE_FROM_CART": {
       const updatedCart = state.cart.filter(
-        cartItem => cartItem.id !== payload.id
+        (cartItem) => cartItem.id !== payload.id
       );
 
       return {
@@ -45,14 +29,67 @@ export function globalReducer(state, action) {
       };
     }
 
+    case "ADD_TO_WISHLIST_FROM_CART": {
+      const updatedCart = state.cart.filter(
+        (cartItem) => cartItem.id === payload.id
+      );
+      let updatedWishlist = [...state.wishlist];
+      updatedWishlist.push({
+        ...updatedCart,
+        qty: payload.qty,
+      });
+
+      return {
+        ...state,
+        wishlist: updatedWishlist,
+        cart: updatedCart,
+      };
+    }
+
+    case "ADD_TO_WISHLIST": {
+      const addedProduct = state.products.find(
+        (product) => product.id === payload.id
+      );
+      let updatedWishlist = [...state.wishlist];
+      updatedWishlist.push({
+        ...addedProduct,
+        qty: payload.qty,
+      });
+
+      return {
+        ...state,
+        wishlist: updatedWishlist,
+      };
+    }
+
     case "REMOVE_FROM_WISHLIST": {
-      const updatedWishList = state.wishlist.filter(
-        (wishListItem) => wishListItem.id !== payload.id
+      const updatedWishlist = state.wishlist.filter(
+        (wishlistItem) => wishlistItem.id !== payload.id
       );
 
       return {
         ...state,
-        wishlist: updatedWishList,
+        wishlist: updatedWishlist,
+      };
+    }
+
+    case "ADD_TO_CART_FROM_WISHLISH": {
+      const updatedWishlist = state.wishlist.filter(
+        (wishlistItem) => wishlistItem.id !== payload.id
+      );
+      const addedProduct = state.products.find(
+        (product) => product.id === payload.id
+      );
+      let updatedCart = [...state.cart];
+      updatedCart.push({
+        ...addedProduct,
+        qty: payload.qty,
+      });
+
+      return {
+        ...state,
+        wishlist: updatedWishlist,
+        cart: updatedCart,
       };
     }
 

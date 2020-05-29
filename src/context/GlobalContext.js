@@ -9,7 +9,33 @@ export const initialState = {
              price: "$150",
              descrition:
                "Wii is a home console from Nintendo. Launched in 2006, it introduced motion controlled gaming to a wide audience of Nintendo fans and people who didn't traditionally play video games. A value model of Wii, Wii mini, was launched in 2013, allowing a new audience to enjoy Wii software.",
-             image: "/nintendo WII.png",
+             image: "/nintendo WII.webp",
+             images: [
+               {
+                 src: "/nintendo WII.webp",
+                 alt: "Nintendo Wii",
+               },
+               {
+                 src: "/xbo-one-X.webp",
+                 alt: "xBox One X",
+               },
+               {
+                 src: "/xboxs.webp",
+                 alt: "xBox One S",
+               },
+               {
+                 src: "/ps4pro.webp",
+                 alt: "PS 4 PRO",
+               },
+               {
+                 src: "/tetris.webp",
+                 alt: "Tetris",
+               },
+               {
+                 src: "/Nintendo.webp",
+                 alt: "Nintendo Switch",
+               },
+             ],
            },
            {
              id: "2",
@@ -17,7 +43,8 @@ export const initialState = {
              price: "$450",
              descrition:
                "Xbox One X is a premium 4K HDR console with a storage issue. The Xbox One X does what no console has done before: native 4K HDR gaming. Memory issues aside, the Xbox One X fulfills the promise of 4K HDR gaming and offers the most premium gaming experience on a console, bar none.",
-             image: "/xbo-one-X.jpg",
+             image: "/xbo-one-X.webp",
+             images: [],
            },
            {
              id: "3",
@@ -25,7 +52,8 @@ export const initialState = {
              price: "$250",
              descrition:
                "The Xbox One S offers a sleek, compact, and 4K video-capable alternative to the original Xbox One, which has been discontinued. With multiple bundles sporting a variety of storage capacities and packed-in games, the Xbox One S is a great option for anyone looking to pick up an Xbox system for the first time.",
-             image: "/xboxs.jpg",
+             image: "/xboxs.webp",
+             images: [],
            },
            {
              id: "4",
@@ -33,21 +61,24 @@ export const initialState = {
              price: "$600",
              descrition:
                "Look for the ‘PS4 Pro Enhanced’ icon on software packaging. PS4 Pro plays all PS4 format games. ‘PS4 Pro Enhanced’ features vary by game. Select titles may have enhanced visuals, frame rate, HDR 10 support, or increases in resolution. Select features depend on the type of display connected to PS4 Pro. Vertical stand sold separately. 4K Entertainment requires access to a 4K compatible content streaming service, a robust internet connection, and a compatible 4K display.",
-             image: "/ps4pro.jpg",
+             image: "/ps4pro.webp",
+             images: [],
            },
            {
              id: "5",
              name: "Tetris",
              price: "$999",
              descrition: "old school",
-             image: "/tetris.jpg",
+             image: "/tetris.webp",
+             images: [],
            },
            {
              id: "6",
              name: "nintendo Switch",
              price: "$95",
              descrition: "Description",
-             image: "/Nintendo.jpg",
+             image: "/Nintendo.webp",
+             images: [],
            },
          ],
          cart: [],

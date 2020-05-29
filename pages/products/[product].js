@@ -11,6 +11,7 @@ import { makeStyles, Theme } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import TabPanel from "../../components/TabPanel";
+import SlideShow from "../../components/SlideShow";
 
 function a11yProps(index) {
   return {
@@ -20,6 +21,12 @@ function a11yProps(index) {
 }
 
 const useStyles = makeStyles((theme) => ({
+  media: {
+    height: 250,
+    [theme.breakpoints.up("md")]: {
+      height: 400,
+    },
+  },
   root: {
     flexGrow: 1,
     width: "100%",
@@ -32,10 +39,8 @@ const ProductPage = (props) => {
   const [qty, setQty] = useState(1);
 
   const product = products.find(
-    (item) => item.id === props.router.query.product
+    item => item.id === props.router.query.product
   );
-
-  console.log(product);
 
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
@@ -49,35 +54,31 @@ const ProductPage = (props) => {
       <h1>Product page</h1>
       <Grid container spacing={2}>
         <Grid xs="12" md="6" item>
-          <CardMedia
-            className={classes.media}
-            image={product.image}
-            title={product.name}
-          />
+          <SlideShow slides={product.images} thumbnails={product.images} />
         </Grid>
         <Grid xs="12" md="6" item>
           <h5>{product.name}</h5>
           <p>Console</p>
           <ul>
             <li>
-              <i className="fas fa-star fa-sm text-primary"></i>
+              <i className="fas fa-star fa-sm text-primary">500 Gb</i>
             </li>
             <li>
-              <i class="fas fa-star fa-sm text-primary"></i>
+              <i class="fas fa-star fa-sm text-primary">Gift 2 games</i>
             </li>
             <li>
-              <i class="fas fa-star fa-sm text-primary"></i>
+              <i class="fas fa-star fa-sm text-primary">2 controlers</i>
             </li>
             <li>
-              <i class="fas fa-star fa-sm text-primary"></i>
+              <i class="fas fa-star fa-sm text-primary">HDMI cabe</i>
             </li>
             <li>
-              <i class="far fa-star fa-sm text-primary"></i>
+              <i class="far fa-star fa-sm text-primary">4 AA batery</i>
             </li>
           </ul>
           <p>
             <span>
-              <strong>$150.99</strong>
+              <strong>{product.price}</strong>
             </span>
           </p>
           <p>
@@ -105,7 +106,7 @@ const ProductPage = (props) => {
             <Tab label="Reviews" {...a11yProps(2)} />
           </Tabs>
           <TabPanel value={value} index={0}>
-            Description
+            {product.descrition}
           </TabPanel>
           <TabPanel value={value} index={1}>
             Info

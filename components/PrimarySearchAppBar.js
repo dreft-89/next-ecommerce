@@ -11,13 +11,13 @@ import {
   Badge,
 } from "@material-ui/core";
 
-import AccountCircle from "@material-ui/icons/AccountCircle";
+// import AccountCircle from "@material-ui/icons/AccountCircle";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import SearchIcon from "@material-ui/icons/Search";
-import NotificationsIcon from "@material-ui/icons/Notifications";
+// import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import MenuIcon from "@material-ui/icons/Menu";
-import MailIcon from "@material-ui/icons/Mail";
+// import MailIcon from "@material-ui/icons/Mail";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import Link from "../src/Link";
 import { useGlobal } from "../src/context/GlobalContext";
@@ -142,7 +142,7 @@ export default function PrimarySearchAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      {/* <MenuItem>
         <IconButton aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="secondary">
             <MailIcon />
@@ -157,8 +157,8 @@ export default function PrimarySearchAppBar() {
           </Badge>
         </IconButton>
         <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
+      </MenuItem> */}
+      {/* <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
@@ -168,7 +168,7 @@ export default function PrimarySearchAppBar() {
           <AccountCircle />
         </IconButton>
         <p>Profile</p>
-      </MenuItem>
+      </MenuItem> */}
       <MenuItem href="/wishlist">
         <IconButton
           aria-label={`show ${wishlistCounter} product`}
@@ -223,7 +223,7 @@ export default function PrimarySearchAppBar() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 0 new mails" color="inherit">
+            {/* <IconButton aria-label="show 0 new mails" color="inherit">
               <Badge badgeContent={0} color="secondary">
                 <MailIcon />
               </Badge>
@@ -242,7 +242,7 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <AccountCircle />
-            </IconButton>
+            </IconButton> */}
             <Link href="/wishlist">
               <IconButton
                 aria-label={`show ${wishlistCounter} product`}

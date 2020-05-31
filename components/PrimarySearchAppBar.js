@@ -1,4 +1,5 @@
 import React from "react";
+import { FormattedMessage } from 'react-intl';
 import { fade, makeStyles } from "@material-ui/core/styles";
 import {
   AppBar,
@@ -9,6 +10,7 @@ import {
   Menu,
   MenuItem,
   Badge,
+  Select,
 } from "@material-ui/core";
 
 // import AccountCircle from "@material-ui/icons/AccountCircle";
@@ -87,7 +89,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar({ handleChangeLocale, locale }) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -205,7 +207,7 @@ export default function PrimarySearchAppBar() {
           </IconButton>
           <Link href="/products">
             <Typography className={classes.title} variant="h6">
-              Products
+              <FormattedMessage id='product.menu.label' />
             </Typography>
           </Link>
           <div className={classes.search}>
@@ -263,6 +265,16 @@ export default function PrimarySearchAppBar() {
                 </Badge>
               </IconButton>
             </Link>
+            <Select
+              labelId="demo-simple-select-helper-label"
+              id="demo-simple-select-helper"
+              value={locale}
+              onChange={handleChangeLocale}
+            >
+              <MenuItem value="ro">Romana</MenuItem>
+              <MenuItem value="ru">Русский</MenuItem>
+              <MenuItem value="en">English</MenuItem>
+            </Select>
           </div>
           <div className={classes.sectionMobile}>
             <IconButton

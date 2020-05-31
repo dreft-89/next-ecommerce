@@ -54,7 +54,10 @@ const ProductPage = (props) => {
       <h1>Product page</h1>
       <Grid container spacing={2}>
         <Grid xs="12" md="6" item>
-          <SlideShow slides={product.images} thumbnails={product.images} />
+          <SlideShow 
+            slides={product.images} 
+            thumbnails={product.images} 
+          />
         </Grid>
         <Grid xs="12" md="6" item>
           <h5>{product.name}</h5>

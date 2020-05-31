@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from "react-intl";
 import { makeStyles } from '@material-ui/core/styles';
 import {
   Grid,
@@ -52,7 +53,12 @@ export default function WishListItem({ product }) {
             <Typography variant="body2" color="textSecondary" component="p">
               {product.description}
             </Typography>
-            <Typography variant="body2" component="p" align="center" fontSize={16}>
+            <Typography
+              variant="body2"
+              component="p"
+              align="center"
+              fontSize={16}
+            >
               {product.price}
             </Typography>
           </CardContent>
@@ -72,14 +78,14 @@ export default function WishListItem({ product }) {
                   }
 
                   dispatch({
-                    type: 'REMOVE_FROM_WISHLIST',
+                    type: "REMOVE_FROM_WISHLIST",
                     payload: {
                       id: product.id,
-                    }
+                    },
                   });
                 }}
               >
-                Remove
+                <FormattedMessage id="remove.btn" />
               </Button>
             </Grid>
             <Grid item xs={12} md={6}>
@@ -95,14 +101,14 @@ export default function WishListItem({ product }) {
                   }
 
                   dispatch({
-                    type: 'ADD_TO_CART_FROM_WISHLIST',
+                    type: "ADD_TO_CART_FROM_WISHLIST",
                     payload: {
                       id: product.id,
-                    }
+                    },
                   });
                 }}
               >
-                Move to bag
+                <FormattedMessage id="from.wish.to.bag.btn" />
               </Button>
             </Grid>
           </Grid>

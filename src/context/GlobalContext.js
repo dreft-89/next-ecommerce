@@ -16,24 +16,16 @@ export const initialState = {
                  alt: "Nintendo Wii",
                },
                {
-                 src: "/xbo-one-X.webp",
+                 src: "/NW1.jpg",
                  alt: "xBox One X",
                },
                {
-                 src: "/xboxs.webp",
-                 alt: "xBox One S",
+                 src: "/NW2.jpg",
+                 alt: "Controler",
                },
                {
-                 src: "/ps4pro.webp",
-                 alt: "PS 4 PRO",
-               },
-               {
-                 src: "/tetris.webp",
-                 alt: "Tetris",
-               },
-               {
-                 src: "/Nintendo.webp",
-                 alt: "Nintendo Switch",
+                 src: "/NW3.jpg",
+                 alt: "Wii",
                },
              ],
            },
@@ -44,7 +36,24 @@ export const initialState = {
              descrition:
                "Xbox One X is a premium 4K HDR console with a storage issue. The Xbox One X does what no console has done before: native 4K HDR gaming. Memory issues aside, the Xbox One X fulfills the promise of 4K HDR gaming and offers the most premium gaming experience on a console, bar none.",
              image: "/xbo-one-X.webp",
-             images: [],
+             images: [
+               {
+                 src: "/xbo-one-X.webp",
+                 alt: "xBox one X",
+               },
+               {
+                 src: "/XX1.png",
+                 alt: "xBox one X",
+               },
+               {
+                 src: "/XX2.png",
+                 alt: "xBox one X",
+               },
+               {
+                 src: "/XX3.png",
+                 alt: "xBox one X",
+               },
+             ],
            },
            {
              id: "3",
@@ -52,33 +61,84 @@ export const initialState = {
              price: "$250",
              descrition:
                "The Xbox One S offers a sleek, compact, and 4K video-capable alternative to the original Xbox One, which has been discontinued. With multiple bundles sporting a variety of storage capacities and packed-in games, the Xbox One S is a great option for anyone looking to pick up an Xbox system for the first time.",
-             image: "/xboxs.webp",
-             images: [],
+             image: "/s1.png",
+             images: [
+               {
+                 src: "/s1.png",
+                 alt: "xbox one S",
+               },
+               {
+                 src: "/s2.png",
+                 alt: "xbox one S",
+               },
+               {
+                 src: "/s3.png",
+                 alt: "xbox one S",
+               },
+               {
+                 src: "/s4.png",
+                 alt: "xbox one S",
+               },
+             ],
            },
            {
              id: "4",
-             name: "PS4 PRO 500Gb",
-             price: "$600",
+             name: "Sony Playstation 4 Slim",
+             price: "$380",
              descrition:
-               "Look for the ‘PS4 Pro Enhanced’ icon on software packaging. PS4 Pro plays all PS4 format games. ‘PS4 Pro Enhanced’ features vary by game. Select titles may have enhanced visuals, frame rate, HDR 10 support, or increases in resolution. Select features depend on the type of display connected to PS4 Pro. Vertical stand sold separately. 4K Entertainment requires access to a 4K compatible content streaming service, a robust internet connection, and a compatible 4K display.",
-             image: "/ps4pro.webp",
-             images: [],
+               "Look for the ‘PS4 Slim Enhanced’ icon on software packaging. PS4 Pro plays all PS4 format games. ‘PS4 Pro Enhanced’ features vary by game. Select titles may have enhanced visuals, frame rate, HDR 10 support, or increases in resolution. Select features depend on the type of display connected to PS4 Pro. Vertical stand sold separately. 4K Entertainment requires access to a 4K compatible content streaming service, a robust internet connection, and a compatible 4K display.",
+             image: "/PsS1.png",
+             images: [
+               {
+                 src: "/PsS1.png",
+                 alt: "Sony Playstation",
+               },
+               {
+                 src: "/PsS2.png",
+                 alt: "Sony Playstation",
+               },
+               {
+                 src: "/PsS3.png",
+                 alt: "Dual Shock",
+               },
+               {
+                 src: "/PsS4.png",
+                 alt: "Dual Shock",
+               },
+             ],
            },
            {
              id: "5",
-             name: "Tetris",
-             price: "$999",
-             descrition: "old school",
-             image: "/tetris.webp",
-             images: [],
-           },
-           {
-             id: "6",
-             name: "nintendo Switch",
-             price: "$95",
+             name: "Nintendo Switch",
+             price: "$195",
              descrition: "Description",
-             image: "/Nintendo.webp",
-             images: [],
+             image: "/NS1.jpg",
+             images: [
+               {
+                 src: "/NS1.jpg",
+                 alt: "Nintendo Switch",
+               },
+               {
+                 src: "/NS2.jpg",
+                 alt: "Nintendo Switch",
+               },
+               {
+                 src: "/NS3.jpg",
+                 alt: "Nintendo Switch",
+               },
+               {
+                 src: "/NS4.jpg",
+                 alt: "Nintendo Switch",
+               },
+               {
+                 src: "/NS5.jpg",
+                 alt: "Nintendo Switch",
+               },
+               {
+                 src: "/NS6.jpg",
+                 alt: "Nintendo Switch",
+               },
+             ],
            },
          ],
          cart: [],

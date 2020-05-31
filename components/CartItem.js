@@ -1,4 +1,5 @@
 import React from "react";
+import { FormattedMessage } from "react-intl";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Grid,
@@ -81,7 +82,7 @@ export default function CartItem({ product }) {
                   });
                 }}
               >
-                Remove from bag
+                <FormattedMessage id="remove.btn" />
               </Button>
             </Grid>
             <Grid item xs={12} md={6}>
@@ -104,7 +105,7 @@ export default function CartItem({ product }) {
                   });
                 }}
               >
-                Move to wishlist
+                <FormattedMessage id="from.bag.to.wishlist.btn" />
               </Button>
             </Grid>
           </Grid>

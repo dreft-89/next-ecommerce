@@ -40,20 +40,20 @@ const SlideShow = ({
     const [activeSlide, setActiveSlide ] = useState(initialSlide);
     const classes = useStyles();
 
-    if (!slides.length || !thumbnails.lenght) {
+    if (!slides.length || !thumbnails.length) {
         return null;
     }
 
     return <>
-    
-    <h1>SlideShow</h1>
-        <Grid container spacing={1}>
+
+        <Grid container spacing={0}>
             <Grid xs="12" item>
                 <CardMedia
                     className={classes.media}
                     image={slides[activeSlide].src}
                     title={slides[activeSlide].alt}
                 />
+                {/* черный фон и текст с описанием */}
                 <Button 
                   onClick={() =>
                     setActiveSlide(activeSlide -1 < 0 ? slides.length -1 : activeSlide - 1)
@@ -82,6 +82,7 @@ const SlideShow = ({
                                 className={`${classes.thumbnail} ${activeSlide === index ? classes.active : ''}`}
                                 image={thumbnail.src}
                                 title={thumbnail.alt}
+                                onClick={() => setActiveSlide(index)}
                             />
                         </Grid>
                     )

@@ -10,4 +10,5 @@ export const ru = {
          "remove.btn": "Удалить",
          "from.bag.to.wishlist.btn": "Переместить в желания",
          "from.wish.to.bag.btn": "Переместить в корзину",
+         "product.page.title": "Описание товара",
        };

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FormattedMessage } from "react-intl";
 import { withRouter } from "next/router";
 import {
   Grid,
@@ -51,13 +52,12 @@ const ProductPage = (props) => {
 
   return product ? (
     <Container maxWidth="lg">
-      <h1>Product page</h1>
+      <h1>
+        <FormattedMessage id="product.page.title" />
+      </h1>
       <Grid container spacing={2}>
         <Grid xs="12" md="6" item>
-          <SlideShow 
-            slides={product.images} 
-            thumbnails={product.images} 
-          />
+          <SlideShow slides={product.images} thumbnails={product.images} />
         </Grid>
         <Grid xs="12" md="6" item>
           <h5>{product.name}</h5>

@@ -10,4 +10,5 @@ export const en = {
          "remove.btn": "Remove",
          "from.bag.to.wishlist.btn": "Move to wishlist",
          "from.wish.to.bag.btn": "Move to bag",
+         "product.page.title":"About product",
        };

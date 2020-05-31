@@ -17,12 +17,12 @@ const useStyles = makeStyles((theme) => ({
     },
     thumbnail: {
         height: 30,
-        opacity: 0.3,
+        opacity: 0.5,
         [theme.breakpoints.up("md")]: {
             height: 40,
         },
     },
-    avtive: {
+    active: {
         opacity: 1,
     },
     root: {

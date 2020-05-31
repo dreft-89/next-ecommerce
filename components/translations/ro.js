@@ -10,4 +10,5 @@ export const ro = {
          "remove.btn": "Sterge",
          "from.bag.to.wishlist.btn": "Trece in favorite",
          "from.wish.to.bag.btn": "Trece in cos",
+         "product.page.title": "Despre produs",
        };
